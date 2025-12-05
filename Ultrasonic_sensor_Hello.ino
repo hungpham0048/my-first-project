@@ -15,7 +15,7 @@ void setup() {
 }
 void loop() {
   
-  // Generate microsecond pulses to initiate the ultrasonic sensor
+  // Generate microsecond pulses to initiate the ultrasonic sensor (on off)
   digitalWrite(trigPin, LOW);
   delayMicroseconds(5);
   digitalWrite(trigPin, HIGH);
@@ -28,12 +28,14 @@ void loop() {
   distance_cm = duration / 58.0;
 
   // Display the distance on the LCD display
-  lcd.setCursor(6, 0); 
-  lcd.print("     "); 
-  lcd.setCursor(6, 0); 
-  if (distance_cm < 10) {
+  lcd.setCursor(3, 0); 
+  if (distance_cm > 10) {
+     lcd.print("No-one here");
+  } else {
+     lcd.setCursor(3, 0);
+     lcd.print("           ");
+     lcd.setCursor(6, 0);
      lcd.print("Hello");
   } 
-  
   delay(1000); // Delay for stability
 }
