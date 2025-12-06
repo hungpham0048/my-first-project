@@ -25,7 +25,7 @@ void loop() {
   // Measure the duration of the echo pulse on the echo pin
   long duration = pulseIn(echoPin, HIGH);
   
-  distance_cm = duration / 58.0;
+  distance_cm = duration / 58.3;
 
   // Display the distance on the LCD display
   lcd.setCursor(3, 0); 
